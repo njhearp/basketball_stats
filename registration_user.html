@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Registration form</title>
+        <link href="style.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+        <h2>Welcome to the registration page. Fill the form!</h2>
+
+        <form action="db_interface/registration_student.php" method="post">
+            <label for="name">
+                Name:
+            </label>
+            <input type="text" name="name" id="name" placeholder="Enter your name">
+            <br>
+
+            <label for="surname">
+                Surname:
+            </label>
+            <input type="text" name="surname" id="surname" placeholder="Enter your surname">
+            <br>
+            <label for="username">
+                Username:
+            </label>
+            <input type="text" name="username" id="username" placeholder="Choose a username">
+            <br>
+            <label for="password">
+                Password:
+            </label>
+            <input type="password" name="password" id="password" placeholder="Choose a password">
+            <br>
+            <button type="submit">Register</button>
+        </form>
+
+    </body>
+
+</html>
