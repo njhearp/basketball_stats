@@ -7,7 +7,7 @@
     $host = "localhost";
     $user = "root";
     $pass = "";
-    $db = "student_management";
+    $db = "basketball_stats";
 
     $connection_object = new mysqli($host, $user, $pass, $db);
 
