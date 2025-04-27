@@ -1,0 +1,127 @@
+/*─────────────────────────────────────────────────────────────────────────────*/
+/* VARIABLES */
+:root {
+    --bg-color:    #f0f2f5;
+    --panel-bg:    #ffffff;
+    --primary:     #0052cc;
+    --primary-lit: #0066ff;
+    --accent:      #ff9800;
+    --text:        #333333;
+    --border:      #dddddd;
+    --radius:      8px;
+  }
+  
+  /*─────────────────────────────────────────────────────────────────────────────*/
+  /* RESET & BASE */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: var(--bg-color);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: var(--panel-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  
+  /*─────────────────────────────────────────────────────────────────────────────*/
+  /* HEADINGS */
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--primary);
+  }
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 5px;
+  }
+  
+  /*─────────────────────────────────────────────────────────────────────────────*/
+  /* NAV BACK LINK */
+  .nav-back {
+    margin-bottom: 20px;
+  }
+  .nav-back a {
+    display: inline-block;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .nav-back a:hover {
+    text-decoration: underline;
+  }
+  
+  /*─────────────────────────────────────────────────────────────────────────────*/
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  th, td {
+    padding: 10px;
+    border: 1px solid var(--border);
+    text-align: center;
+  }
+  th {
+    background: var(--bg-color);
+  }
+  tr:nth-child(even) {
+    background: #fafafa;
+  }
+  
+  /*─────────────────────────────────────────────────────────────────────────────*/
+  /* FORMS */
+  form {
+    margin-bottom: 20px;
+  }
+  form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  form input[type="text"],
+  form input[type="password"],
+  form input[type="number"],
+  form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+  button {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background .2s ease;
+  }
+  button:hover {
+    background: var(--primary-lit);
+  }
+  
+  /*─────────────────────────────────────────────────────────────────────────────*/
+  /* LINKS */
+  a {
+    color: var(--primary);
+  }
+  a:hover {
+    color: var(--primary-lit);
+  }
+  

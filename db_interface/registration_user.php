@@ -1,37 +1,34 @@
-<?php 
+<?php
+// start buffering to prevent any accidental output
+ob_start();
 
-    // Connect to the database
-    $host = "localhost";
-    $user = "root";
-    $pass = "";
-    $db = "basketball_stats";
+// 1) Connect
+$connection = new mysqli("localhost", "root", "", "basketball_stats");
+if ($connection->connect_error) {
+    die("Connection failed");
+}
 
-    $connection_object = new mysqli($host, $user, $pass, $db);
+// 2) Read & sanitize inputs
+$username = $connection->real_escape_string($_POST["username"]);
+$name     = $connection->real_escape_string($_POST["name"]);
+$surname  = $connection->real_escape_string($_POST["surname"]);
+// switch to password_hash() in production!
+$password = md5($_POST["password"]);
 
-    if ($connection_object->connect_error) {
-        die("Connection failed");
-    }
+// 3) Run INSERT (use the actual column name: username)
+$sql = "
+  INSERT INTO users (username, password, name, surname)
+  VALUES ('$username', '$password', '$name', '$surname')
+";
 
-    echo "Connected successfully";
+if ($connection->query($sql) === TRUE) {
+    // 4) Redirect *before* any output
+    header("Location: ../user_interface.php");
+    exit();
+} else {
+    // handle error (no redirect)
+    echo "Error saving user: " . htmlspecialchars($connection->error);
+}
 
-    // Read all the form fields and save the corresponding values to php variables
-    $username = $_POST["username"];
-    $name = $_POST["name"];
-    $surname = $_POST["surname"];
-    $password = MD5($_POST["password"]);
-
-    // Write the mysql query to write on the databare and insert a new record in the users table
-    $register_user_query = "INSERT INTO users (id, password, name, surname) VALUES ('$username', '$password', '$name', '$surname')";
-    // echo $register_user_query;
-
-    // Execute the query
-    $results = $connection_object->query($register_user_query);
-
-    if ($results === TRUE) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $register_user_query . "<br>" . $connection_object->error;
-    }
-
-    // Jump to the dashboard.html page
-    header("Location: ../dashboard.php");
+$connection->close();
+?>
